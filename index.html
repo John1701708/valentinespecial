@@ -137,7 +137,7 @@
         <div class="special-section">
             <div class="special-title">Our First Memory</div>
             <div class="special-image-container">
-                <img src="https://valentinespecial-tawny.vercel.app/images/special.jpg" alt="First Photo" class="special-image" id="specialImg" onerror="this.src='https://via.placeholder.com/400x300/8b1c4a/ffd700?text=First+Photo+Oct+15+2023'">
+                <img src="/images/special.jpg" alt="First Photo" class="special-image">
                 <div class="special-caption">October 15, 2023 - Juice Shop | First Salary, First Date, First Photo</div>
             </div>
         </div>
@@ -170,8 +170,6 @@
     </div>
 
     <script>
-        const BASE_URL = 'https://valentinespecial-tawny.vercel.app';
-
         // Floating Hearts
         function createHearts() {
             const container = document.getElementById('heartsContainer');
@@ -188,7 +186,7 @@
             },300);
         }
 
-        // TIME COUNTER
+        // Time Counter
         function updateCounter() {
             const startDate = new Date('October 15, 2023 00:00:00').getTime();
             const now = new Date().getTime();
@@ -205,30 +203,30 @@
             document.getElementById('seconds').textContent = seconds;
         }
 
-        // AUTO SLIDING GALLERY
+        // Auto Slider
         let currentSlide = 0;
         function loadSlider() {
             const slider = document.getElementById('imageSlider');
-            for(let i=1;i<=23;i++){
+            for (let i = 1; i <= 23; i++) {
                 const slide = document.createElement('div');
-                slide.className='slide';
-                slide.innerHTML = `<img src="${BASE_URL}/images/memory${i}.jpg" alt="Memory" loading="lazy" onerror="this.style.display='none'">`;
+                slide.className = 'slide';
+                slide.innerHTML = `<img src="/images/memory${i}.jpg" alt="Memory" loading="lazy" onerror="this.style.display='none'">`;
                 slider.appendChild(slide);
             }
 
             const totalSlides = slider.children.length;
             setInterval(()=>{
                 currentSlide++;
-                if(currentSlide>=totalSlides) currentSlide=0;
-                slider.style.transform=`translateX(-${currentSlide*100}%)`;
+                if(currentSlide >= totalSlides) currentSlide = 0;
+                slider.style.transform = `translateX(-${currentSlide*100}%)`;
             },3000);
         }
 
-        // BACKGROUND MUSIC
-        let musicStarted=false;
-        function startMusic(){
+        // Background Music
+        let musicStarted = false;
+        function startMusic() {
             if(musicStarted) return;
-            musicStarted=true;
+            musicStarted = true;
             document.getElementById('bgMusic').src = "https://www.youtube.com/embed/cNGjD0VG4R8?autoplay=1&loop=1&playlist=cNGjD0VG4R8";
         }
         document.addEventListener('click', startMusic, {once:true});
@@ -237,7 +235,7 @@
         // Initialize
         createHearts();
         updateCounter();
-        setInterval(updateCounter,1000);
+        setInterval(updateCounter, 1000);
         loadSlider();
     </script>
 </body>
